@@ -1,0 +1,58 @@
+<div class="content">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Ro'yhatdan o'tish</mat-card-title>
+        </mat-card-header>
+        <mat-error *ngIf="invLogin">Loginga boshqa nom tanlang.</mat-error>
+        <mat-card-content>
+            <form [formGroup]="registerForm" >
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Login</mat-label>
+                    <input matInput formControlName="login" type="text" placeholder="Login" required
+                            (change)='invLogin=false'>
+                    <mat-error *ngIf="checkError('login', 'required')">Login kiritilishi shart.</mat-error>
+                    <mat-error *ngIf="checkError('login', 'minlength')">Login uchta belgidan kam bo'lmasligi lozim.</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Ism</mat-label>
+                    <input matInput formControlName="ismi" type="text" placeholder="Ism" required>
+                    <mat-error *ngIf="checkError('ismi', 'required')">Ismni kiritilishi shart</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Familiya</mat-label>
+                    <input matInput formControlName="familiya" type="text" placeholder="Familiya" required>
+                    <mat-error *ngIf="checkError('familiya', 'required')">Familiyani kiritilishi shart</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" type="text" placeholder="user@misol.uz">
+                    <mat-error *ngIf="checkError('email', 'email')">E-mail hato kiritilgan</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" 
+                        [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                    <mat-icon matSuffix (click)="hide = !hide"> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-error *ngIf="checkError('password', 'required')">Parol kiritilishi shart</mat-error>
+                    <mat-error *ngIf="checkError('password', 'minlength')">Parol to'rtta belgidan kam bo'lmasligi lozim</mat-error>                   
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password2" 
+                        [type]="hide ? 'password' : 'text'" placeholder="Passwordni yana bir bor kiriting" required>
+                    <mat-icon matSuffix (click)="hide = !hide"> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-error *ngIf="checkError('password2', 'required')">Parol kiritilishi shart</mat-error>
+                    <mat-error *ngIf="checkError('password2', 'minlength')">Parol to'rtta belgidan kam bo'lmasligi lozim</mat-error>
+                    <mat-error *ngIf="!registerForm.errors?.identityPasswordError">Parollar mos kelmadi</mat-error>                   
+                </mat-form-field>
+            </form>    
+        </mat-card-content>
+        <mat-card-actions class="reg-form" >
+            <button mat-raised-button class="full-width-input" (click)="register()" 
+                    [disabled]="!registerForm.valid || registerForm.disabled" 
+                    color="primary">
+                Ro'yhatdan o'tish
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

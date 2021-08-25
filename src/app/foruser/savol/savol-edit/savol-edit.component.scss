@@ -1,0 +1,95 @@
+.test-title {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+mat-card {
+    margin: 3px;
+    border-color: dodgerblue;
+    border-width: 1px;
+    border-style: solid;
+}
+mat-expansion-panel {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(182, 225, 245);
+    mat-expansion-panel-header {
+        padding: 10px;
+        height: auto!important; 
+    }
+}
+mat-form-field {
+    mat-label {
+        color: darkcyan;
+    }
+}
+
+mat-label {
+    color: darkcyan;
+}
+
+ng-katex-html {
+    margin: 5px;
+}
+
+.f-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px; 
+
+}
+.f-container-u1 {
+    flex-basis: 0;
+    flex-grow: 1; 
+    flex-shrink: 1;     
+}
+.f-container-u2 {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center; 
+}
+.f-item1 {
+    flex-basis: 100px;
+    flex-shrink: 1;
+}
+.f-item2 {
+    flex-basis: 250px; 
+    flex-shrink: 2;
+    flex-grow: 1;
+}
+.f-link {
+    flex-grow: 0; 
+    flex-shrink: 0;
+}
+.b-container {
+    border-top: 1px solid lightgray;
+    display: flex;
+    padding: 2px; 
+    justify-content: flex-end;
+}
+
+mat-form-field {
+    margin-right: 3px;
+}
+
+.status-width {
+    width: 200px;
+}
+
+.savol-javob-title {
+    color: darkcyan;
+    border-bottom: gray;
+    font-size: 0.8rem;
+}
+//[class*='ng-tns-c'] {
+//    flex-grow: 1;
+//}
+
+angular-editor-toolbar button i {
+    font-family: FontAwesome !important;
+    color: #474d6d !important;
+}

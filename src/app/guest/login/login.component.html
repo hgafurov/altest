@@ -1,0 +1,40 @@
+<div class="content">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Kirish</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content class="signin-content">
+        <form [formGroup]="loginForm">
+            <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Login</mat-label>
+                <input matInput formControlName="username" type="text" placeholder="Login" 
+                      (ngModelChange)='authErr=false' required>
+                <mat-error *ngIf="checkError('username', 'required')">Login kiritilishi shart</mat-error>
+                <mat-error *ngIf="checkError('username', 'minlength')">Login uchta belgidan kam bo'lmasligi lozim</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input" appearance="outline">
+                <mat-label>Parol</mat-label>
+                <input matInput formControlName="password" 
+                      [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                  <mat-icon matSuffix (click)="hide = !hide"> {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="checkError('password', 'required')">Parol kiritilishi shart</mat-error>
+                <mat-error *ngIf="checkError('password', 'minlength')">Parol to'rtta belgidan kam bo'lmasligi lozim</mat-error>                   
+            </mat-form-field>
+            <mat-error *ngIf="authErr">Login yoki parol xato kiritilgan</mat-error>
+        </form>    
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-content class="signin-content">
+        <button mat-raised-button class="full-width-input login-button" (click)="login()" 
+                [disabled]="!loginForm.valid || loginForm.disabled" 
+                color="primary">
+            Login
+        </button>
+        <button mat-raised-button class="full-width-input login-button" (click)="register()" 
+                color="accent">
+            Ro'yhatdan o'tish
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div> 

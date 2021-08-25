@@ -1,0 +1,68 @@
+.testing-title { 
+    display: flex;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #fafafa;
+    border-bottom: #4d5156;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    align-items: center;
+}
+.t-item1 {
+    flex-basis: 250px; 
+    flex-shrink: 2;
+    flex-grow: 1;
+    text-align: center;
+}
+.t-item2 {
+    flex-basis: 0; 
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.savol {
+    margin: 5px;
+    border-color: darkgray;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    background-color: white;
+    color: #4d5156;
+    font-size: 14px;
+}
+.javob {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-color: lightgray;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+.j-item1 {
+    flex-basis: 0;
+    flex-shrink: 0;
+}
+.j-item2 {
+    flex-basis: 250px; 
+    flex-shrink: 2;
+    flex-grow: 1;
+}
+.natija {
+    margin: 20px;
+    padding: 24px;
+    border-color: darkgray;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    background-color: white;
+    color: blue;
+    .tugri {
+        color: green;
+    }
+    .notugri {
+        color: red;
+    }
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import '~katex/dist/katex.css';
+@import '~material-icons-font/sass/variables';
+@import '~material-icons-font/sass/mixins';
+$MaterialIcons_FontPath: "~material-icons-font/fonts";
+@import '~material-icons-font/sass/main';
+@import '~material-icons-font/sass/Regular';
+
+.snack-bar-green {
+    background-color: rgba(23, 192, 17, 0.9);
+    border-left-color: #04a004;
+    border-width: 5px;
+    border-left-style: solid;
+    font-weight: bold;
+    color: rgb(255, 248, 248)
+}
+.snack-bar-red {
+    background-color: rgba(235, 23, 23, 0.9);
+    border-left-color: #ac0303;
+    border-width: 5px;
+    border-left-style: solid;
+    font-weight: bold;
+    color: rgb(255, 248, 248)
+}
+.snack-bar-yellow {
+    background-color: khaki;
+    opacity: 0.3;
+}
+.mat-drawer-inner-container{ overflow: unset !important; }

@@ -1,0 +1,141 @@
+<mat-toolbar fxLayout="row" color="primary">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">  
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+        <img src="/assets/images/alcedocir.png" width="40px"> &nbsp;
+        <img src="/assets/images/alcedobilim.png" width="100px">
+    
+        <span fxFlex></span>
+    
+    <button  mat-button routerLink="/message"  fxHide.xs>
+        <!-- <mat-icon class="mr">message</mat-icon> -->
+        Habarlar
+    </button> 
+    <button  mat-button routerLink="/notification"  fxHide.xs>
+        <!-- <mat-icon class="mr">notifications_active</mat-icon> -->
+        Eslatma
+    </button>
+    
+    <button  mat-button *ngIf="!!user.token" routerLink="/user-profile"  fxHide.xs>
+        <mat-icon class="mr">account_circle</mat-icon>
+        {{user.ismi}} {{user.familiya}}
+    </button>
+    <button  mat-button *ngIf="!user.token" routerLink="/register"  fxHide.xs>
+        <mat-icon class="mr">how_to_reg</mat-icon>
+        Ro'yhatdan o'tish
+    </button>
+    <button  mat-button *ngIf="!user.token" routerLink="/login"  fxHide.xs>
+        <mat-icon class="mr">login</mat-icon>
+        Kirish
+    </button>
+    <button  mat-button *ngIf="!!user.token" (click)="logout()"  fxHide.xs>
+        <mat-icon class="mr">logout</mat-icon>
+        Chiqish
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="dropMenu" fxHide fxShow.xs>
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #dropMenu="matMenu">
+        <ng-container>
+            <button mat-menu-item routerLink="/login" *ngIf="!this.user.token">
+                <mat-icon class="mr">login</mat-icon>
+                Kirish
+            </button>
+            <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container>
+            <button mat-menu-item routerLink="/register" *ngIf="!this.user.token">
+                <mat-icon class="mr">how_to_reg</mat-icon>
+                Ro'yhatdan o'tish
+            </button>
+            <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container>
+            <button mat-menu-item (click)="logout()" *ngIf="!!this.user.token">
+                <mat-icon class="mr">logout</mat-icon>
+                Chiqish
+            </button>
+            <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container>
+            <button mat-menu-item routerLink="/user-profile" *ngIf="!!this.user.token">
+                <mat-icon class="mr">account_circle</mat-icon>
+                Account
+            </button>
+            <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container>
+            <button mat-menu-item routerLink="/message">
+                <mat-icon class="mr">message</mat-icon>
+                Habarlar
+            </button>
+            <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container>
+            <button mat-menu-item routerLink="/notification">
+                <mat-icon class="mr">notifications_active</mat-icon>
+                Eslatmalar
+            </button>
+            <mat-divider></mat-divider>
+        </ng-container>
+    </mat-menu>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+        <button mat-button (click)="closeSideNav()" routerLink="">
+            <mat-icon>home</mat-icon>
+            <span>Bosh sahifa</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>text_snippet</mat-icon>
+            <span>Yangiliklar</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>notes</mat-icon>
+            <span>Maqolalar</span>
+        </button>
+        <mat-divider></mat-divider>
+        <div class="menu-title">
+            Test topshirish
+        </div>
+        <button mat-button (click)="closeSideNav()" routerLink="/testlist" class="menu-button">
+            <mat-icon>rule</mat-icon>
+            <span>Ochiq testlar</span>
+        </button>
+        <mat-divider></mat-divider>
+        <div *ngIf='isAuth' class="menu-title">
+            Test tayyorlash
+        </div>
+        <button *ngIf='isAuth' mat-button (click)="closeSideNav()" routerLink="savol/cards" class="menu-button">
+            <mat-icon>library_books</mat-icon>
+            <span>Savollar</span>
+        </button>
+        <button *ngIf='isAuth' mat-button (click)="closeSideNav()" routerLink="test/table" class="menu-button">
+            <mat-icon>library_add_check</mat-icon>
+            <span>Testlar</span>
+        </button>
+        <mat-divider></mat-divider>
+        <div *ngIf='isAdmin' class="menu-title">
+            Administrator uchun
+        </div>
+        <button *ngIf='isAdmin' mat-button (click)="closeSideNav()" routerLink="admin/users" class="menu-button">
+            <mat-icon>people</mat-icon>
+            <span>Users</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

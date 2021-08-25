@@ -1,0 +1,20 @@
+::ng-deep .mat-dialog-container {
+    //background: gray !important;
+    padding: 15px 24px;
+    overflow: hidden;
+}
+::ng-deep .mat-dialog-title {
+    margin-bottom: 5px;
+}
+mat-form-field{
+    margin: 0px 3px;
+}
+.full-width-input {
+    width: 100%;
+    justify-content: safe;
+}
+.f300-width-input {
+    width: 100%;
+    max-width: 300px;
+    justify-content: safe;
+}

@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Foydalanuvchi ma'lumotlari</h2>
+<mat-dialog-content>
+    <form [formGroup]="userForm">
+        <div class="full-width-input">
+            <mat-form-field style = "width: 100px" >
+                <mat-label>ID </mat-label>
+                <input matInput formControlName="id"   type="text" readonly>
+            </mat-form-field>
+            <mat-form-field style = "width: 194px">
+                <mat-label>Login </mat-label>
+                <input matInput formControlName="login"   type="text" readonly>
+            </mat-form-field>
+        </div>    
+        <mat-form-field class="f300-width-input" >
+            <mat-label>Ismi </mat-label>
+            <input matInput formControlName="ismi"   type="text" required>
+            <mat-error *ngIf="checkError('ismi', 'required')">Ismni kiritilishi shart</mat-error>
+        </mat-form-field>
+        <mat-form-field class="f300-width-input" >
+            <mat-label>Familiya </mat-label>
+            <input matInput formControlName="familiya"   type="text" required>
+            <mat-error *ngIf="checkError('familiya', 'required')">Familiya kiritilishi shart</mat-error>
+        </mat-form-field>
+        <mat-form-field class="f300-width-input">
+            <mat-label>Otasining Ismi </mat-label>
+            <input matInput formControlName="otaIsmi"   type="text">
+        </mat-form-field>
+        <mat-form-field class="f300-width-input">
+            <mat-label>Email </mat-label>
+            <input matInput formControlName="email"   type="text">
+            <mat-error *ngIf="checkError('email', 'email')">E-mail hato kiritilgan</mat-error>
+        </mat-form-field>
+        <mat-form-field class="f300-width-input">
+            <mat-label>Rollari </mat-label>
+            <mat-select formControlName="roles" multiple>
+                <mat-option *ngFor="let role of roleList" [value]="role">{{role}}</mat-option> 
+            </mat-select>
+            <mat-error *ngIf="checkError('roles', 'required')">Hech bo'lmaganda bitta roli bo'lishi shart</mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="saveUser()" [mat-dialog-close]="true" color="primary" cdkFocusInitial
+            [disabled]="!userForm.valid || userForm.disabled">
+        Сохранить
+    </button>
+  <button mat-stroked-button mat-dialog-close>Закрыть</button>
+</mat-dialog-actions>

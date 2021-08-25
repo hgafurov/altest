@@ -1,0 +1,76 @@
+<div class="f-container">
+    <div class="f-container-u1">
+        <div class="f-container-u2">
+            <button mat-stroked-button (click)="backClick()" color="primary">
+                <mat-icon>arrow_back</mat-icon>
+                Orqaga
+            </button> 
+            <span style="margin: 10px;">Shaxsiy ma'lumotlar</span> 
+        </div>
+    </div>   
+</div>
+
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="userForm">
+            <div>
+                <mat-form-field style = "width: 100px"  appearance="outline">
+                    <mat-label>ID </mat-label>
+                    <input matInput formControlName="id"   type="text" readonly>
+                </mat-form-field>
+                <mat-form-field style = "width: 200px"  appearance="outline">
+                    <mat-label>Login </mat-label>
+                    <input matInput formControlName="login"   type="text" readonly>
+                </mat-form-field>
+            </div>    
+            <mat-form-field style = "width: 250px" appearance="outline">
+                <mat-label>Ismi </mat-label>
+                <input matInput formControlName="ismi"   type="text" required>
+                <mat-error *ngIf="checkError('ismi', 'required')">Ismni kiritilishi shart</mat-error>
+            </mat-form-field>
+            <mat-form-field  style = "width: 250px" appearance="outline">
+                <mat-label>Familiya </mat-label>
+                <input matInput formControlName="familiya"   type="text" required>
+                <mat-error *ngIf="checkError('familiya', 'required')">Familiya kiritilishi shart</mat-error>
+            </mat-form-field>
+            <mat-form-field  style = "width: 250px" appearance="outline">
+                <mat-label>Otasining Ismi </mat-label>
+                <input matInput formControlName="otaIsmi" type="text">
+            </mat-form-field>
+            <mat-form-field  style = "width: 200px" appearance="outline">
+                <mat-label>Tug'ilgan sana </mat-label>
+                <input matInput formControlName="tugSana" type="date">
+            </mat-form-field>
+            <mat-form-field  style = "width: 270px" appearance="outline">
+                <mat-label>Email </mat-label>
+                <input matInput formControlName="email" type="text">
+                <mat-error *ngIf="checkError('email', 'email')">E-mail hato kiritilgan</mat-error>
+            </mat-form-field>
+            <mat-form-field  style = "width: 270px" appearance="outline">
+                <mat-label>Telefon raqamlari </mat-label>
+                <input matInput formControlName="telNum" type="text">
+            </mat-form-field>
+            
+            <!-- <mat-form-field  style = "width: 200px" appearance="outline">
+                <mat-label>Statusi</mat-label>
+                <input matInput [hidden]="true" formControlName="activated" type="text">
+                <mat-checkbox formControlName="activated" [readonly]="true">Aktiv</mat-checkbox>
+            </mat-form-field>
+
+            
+            <mat-form-field style = "width: 270px" appearance="outline">
+                <mat-label>Rollari </mat-label>
+                <mat-select formControlName="roles" multiple readonly>
+                    <mat-option *ngFor="let role of roleList" [value]="role">{{role}}</mat-option> 
+                </mat-select>
+                <mat-error *ngIf="checkError('roles', 'required')">Hech bo'lmaganda bitta roli bo'lishi shart</mat-error>
+            </mat-form-field> -->
+        </form> 
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button (click)="saveUser()" color="primary" cdkFocusInitial
+            [disabled]="!userForm.valid || userForm.disabled">
+        Сохранить
+        </button>
+    </mat-card-actions>  
+</mat-card>

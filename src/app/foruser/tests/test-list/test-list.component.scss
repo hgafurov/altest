@@ -1,0 +1,83 @@
+.test-title {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    padding: 3px;
+    background-color: rgb(241, 241, 241);
+    color: darkcyan;
+    font-size: 14pt;
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+}
+table {
+    width: 100%;
+}
+.mat-row-cus {
+    font-size: 9px;
+}
+.mat-row:hover {
+    background-color:#dfeffb;
+    //font-weight: bold;
+}
+.mat-column-id {
+    width: 4rem;
+}
+.mat-column-savol {
+    width: 50%
+}
+.mat-column-action {
+    width: 5rem;
+}
+.table-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+tr.table-detail-row {
+    height: 0;
+}
+mat-paginator {
+    z-index: 1;
+    position: sticky;
+    bottom: 0;    
+    padding: 3px;
+    border-top-color: #778899;
+    border-top-style: solid;
+    border-top-width: 2px;
+}
+mat-form-field {
+    margin: 0 3px;
+    font-size: 0.8rem;
+}
+.filter-panel {
+    background-color: white;
+    border-bottom: darkgray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+.f-container {
+    display: flex;
+    align-items: center;
+}
+.f-container-u1 {
+    flex-basis: 0;
+    flex-grow: 1; 
+    flex-shrink: 1;    
+}
+.f-item1 {
+    flex-basis: 120px;
+    flex-shrink: 1;  
+}
+.f-item2 {
+    flex-basis: 200px; 
+    flex-shrink: 2;
+    flex-grow: 2;
+}
+.f-title {
+    margin-left: 15px;
+    font-size: 1rem;
+}
+button {
+    background-color: white;
+}

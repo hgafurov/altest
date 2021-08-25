@@ -1,0 +1,149 @@
+<mat-drawer-container autosize>
+    <mat-drawer-content>
+        <div class="f-container test-title">
+            <div class="f-container-u1">
+                <div class="f-container-u2">
+                    <button mat-stroked-button (click)="backClick()" color="primary">
+                        <mat-icon>arrow_back</mat-icon>
+                    </button> 
+                    <span class="bold-text" style="margin: 10px;">Test</span> 
+                    <div class="f-link">
+                        <button mat-stroked-button class="f-item1" (click)="saveTest()" color="primary" cdkFocusInitial
+                            [disabled]="!testForm.valid || testForm.disabled || saveButtonDisabled">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>  
+            <div class="f-link">
+                <button mat-stroked-button class="f-item1" 
+                    (click)="drawer.toggle()" color="primary" cdkFocusInitial>
+                    Savollar
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div>
+            <mat-card style="padding: 8px;">
+                <mat-card-content>
+                    <form [formGroup]="testForm">
+                        <div class="f-container">
+                            <mat-form-field class="f-item1" style = "width: 100px"  appearance="outline">
+                                <mat-label>ID </mat-label>
+                                <input matInput formControlName="id"   type="text" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="f-item2" appearance="outline" color="primary">
+                                <mat-label>Nomi </mat-label>
+                                <input matInput formControlName="nomi"   type="text">
+                            </mat-form-field>
+                            <mat-form-field class="f-item2" appearance="outline" color="primary">
+                                <mat-label>Fani </mat-label>
+                                <input matInput formControlName="fani"   type="text">
+                            </mat-form-field>
+                            <mat-form-field class="f-item2" appearance="outline">
+                                <mat-label>Bo'limi </mat-label>
+                                <input matInput formControlName="razdel"   type="text">
+                            </mat-form-field>
+                            <mat-form-field class="f-item2" appearance="outline">
+                                <mat-label>Muallifi </mat-label>
+                                <input matInput formControlName="muallifi"   type="text">
+                            </mat-form-field>
+                            <div class="f-item1" style="width: 200px; margin-left: 10px;">
+                                <mat-label>Statusi</mat-label>
+                                <mat-checkbox formControlName="activated" style="width: 100%;">Aktiv</mat-checkbox>
+                            </div>
+                        </div>  
+                    </form> 
+                </mat-card-content>
+            </mat-card>
+        
+            <div>
+                <div class="f-container" style="justify-content: center;">
+                    <span class="f-title">Savollar {{savolCount}}-ta</span>
+                </div>
+                        
+                <mat-card *ngFor="let savol of currTest.savols; let i = index">
+                    <mat-card-content>
+                        <div class="f-container">
+                            <div class="f-container-u1">
+                                <div class="f-container" style="flex-wrap: wrap;">
+                                    <div class="f-item1">
+                                        <mat-label>Savol ID: </mat-label> 
+                                        <span style="color: black;">{{savol.id}}</span>
+                                    </div>
+                                    <div class="f-item2">
+                                        <mat-label>Fani: </mat-label> 
+                                        <span style="color: black;">{{savol.fani}}</span>
+                                    </div>
+                                    <div class="f-item2" style="width: 300;">
+                                        <mat-label>Bo'limi: </mat-label> 
+                                        <span style="color: black;">{{savol.razdel}}</span>
+                                    </div>
+                                </div>                                   
+                            </div>
+                            <div class="f-link">
+                                <mat-label>Savol</mat-label> {{i+1}}/{{savolCount}}
+                            </div>
+                        </div>           
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <p>Savol:</p>
+                        <ng-katex-html [html]="savol.savol | strForKatex "></ng-katex-html>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <p>To'g'ri javob:</p>
+                        <ng-katex-html [html]="savol.tj | strForKatex"></ng-katex-html>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <p>Javob 1:</p>
+                        <ng-katex-html [html]="savol.j1 | strForKatex"></ng-katex-html>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <p>Javob 2:</p>
+                        <ng-katex-html [html]="savol.j2 | strForKatex"></ng-katex-html>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content *ngIf="savol.j3">
+                        <p>Javob 3:</p>
+                        <ng-katex-html [html]="savol.j3 | strForKatex"></ng-katex-html>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content *ngIf="savol.j4">
+                        <p>Javob 4:</p>
+                        <ng-katex-html [html]="savol.j4 | strForKatex"></ng-katex-html>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <div class="f-container" style="margin-top: 15px;">
+                            <div class="f-container-u1">
+                                <div class="f-container" style="flex-wrap: wrap;">
+                                    <div class="f-item2">
+                                        Statusi: <span style="color: black;">{{savol.activated ? "chop etilgan" : "chop etilmagan"}}</span>
+                                    </div>
+                                    <div class="f-item2">
+                                        Muallifi: <span style="color: black;">{{savol.muallifi}}</span>
+                                    </div>
+                                </div>                                 
+                            </div>
+                            <div class="f-link">
+                                <button mat-icon-button color="primary" (click)="editSavol(savol.id)">
+                                    <mat-icon>edit</mat-icon>
+                                </button> 
+                                <button mat-icon-button color="warn" (click)="deleteSavol(savol.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </button> 
+                            </div> 
+                        </div>           
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </mat-drawer-content>
+    <mat-drawer #drawer  mode="over" position="end" style="width: 90%;">
+        <app-savol-card-list (onToggle)="drawer.toggle()" (onAddSavolToTest)=addSavol($event) mode="select"></app-savol-card-list>
+    </mat-drawer>
+</mat-drawer-container>

@@ -1,0 +1,36 @@
+<div class="testing-title">
+    <div class="t-item1">
+        {{currTest.nomi}}
+    </div>
+    <div class="t-item2">
+        <button mat-stroked-button [disabled]="tover" (click)="testOver(natija)" color="primary">
+            Topshirish
+        </button>
+    </div>
+</div>
+<div #natija>
+<div *ngIf="tover" class="natija">
+    <div>Sizning natijangiz : {{100 * tjCount / savCount!}}%</div>
+    <div class="tugri">To'g'ri javoblar: {{tjCount}}</div>
+    <div class="notugri">Noto'g'ri javoblar: {{savCount!-tjCount!}}</div>
+</div>
+</div>
+<div class="savol" *ngFor="let savol of currTest.savols; let i = index">
+    <div>
+        <div style="margin: 3px; text-align: center;">{{i+1}} - savol</div>
+        <div style="margin-left: 20px; margin-bottom: 5px;">
+            <ng-katex-html [html]="savol.savol | strForKatex"></ng-katex-html>
+        </div>      
+    </div>
+    <mat-radio-group [(ngModel)]="savol.sj">
+        <div class="javob" *ngFor="let javob of savol.javobs; let j = index" 
+                [style.background-color]="tover ? ((j == savol.sj && savol.tj != savol.sj) ? 'rgba(255, 0, 0, 0.3)' : j == savol.tj ? 'rgba(0, 255, 0, 0.3)' : '') : ''">
+            <div class="j-item1">
+                <mat-radio-button  [value]="j" [disabled]="tover" color="primary"></mat-radio-button>   
+            </div>
+            <div class="j-item2">
+                <ng-katex-html  [html]="javob | strForKatex"></ng-katex-html> 
+            </div>   
+        </div> 
+    </mat-radio-group>
+</div>

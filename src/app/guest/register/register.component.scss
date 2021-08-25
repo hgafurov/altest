@@ -1,0 +1,30 @@
+mat-card {
+    max-width: 500px;
+    margin: 2em 2px;
+    text-align: center;
+    border-radius: 0px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+mat-card-content {
+    margin: 0px;
+}
+mat-card-header {
+    justify-content: center;
+}
+mat-form-field {
+    margin:0px 2px;
+}
+mat-icon {
+    cursor: default;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.full-width-input {
+    width: 100%;
+    justify-content: safe;
+}

@@ -1,0 +1,31 @@
+mat-card {
+    max-width: 400px;
+    margin: 2em 2px;
+    text-align: center;
+    border-radius: 0px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+mat-card-header {
+    justify-content: center;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.signin-content {
+    padding: 10px 1rem;
+    margin: 0px;
+    font-size: 11pt;
+}
+.full-width-input {
+width: 100%;
+}
+mat-icon {
+    cursor: default;
+}
+.login-button{
+    margin-top: 3px;
+}

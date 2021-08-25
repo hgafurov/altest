@@ -1,0 +1,36 @@
+.test-title {
+    padding: 3px;
+    background-color: rgb(241, 241, 241);
+    color: darkcyan;
+    font-size: 14pt;
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+}
+table {
+    width: 100%;
+}
+.mat-row-cus {
+    font-size: 9px;
+}
+.mat-row:hover {
+    background-color:#dfeffb;
+    //font-weight: bold;
+}
+.mat-column-id {
+    width: 4rem;
+}
+.mat-column-savol {
+    width: 50%
+}
+.mat-column-action {
+    width: 5rem;
+}
+.table-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+tr.table-detail-row {
+    height: 0;
+}

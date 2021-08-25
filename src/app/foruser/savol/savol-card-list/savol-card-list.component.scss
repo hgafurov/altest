@@ -1,0 +1,72 @@
+.test-title {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    padding: 3px;    
+    background-color: #efeeff;
+    border-bottom-color: #778899;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+.savol-panel {
+    margin: 3px;
+    border: green;
+    border-style: solid;
+    border-width: 1px;
+}
+mat-paginator {
+    z-index: 1;
+    position: sticky;
+    bottom: 0;    
+    padding: 3px;
+    border-top-color: #778899;
+    border-top-style: solid;
+    border-top-width: 2px;
+}
+mat-card {
+    margin: 3px;
+    margin-bottom: 10px;
+    border-color: dodgerblue ;
+    border-width: 1px;
+    border-style: solid;
+}
+mat-card-content {
+    margin: 5px 0px;
+    p {
+        font-size: 0.8rem;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        color: darkcyan;
+    }
+}
+mat-form-field {
+    margin: 0 0.8rem;
+    font-size: 0.8rem;
+}
+.f-container {
+    display: flex;
+    align-items: center;
+}
+.f-container-u1 {
+    flex-basis: 0;
+    flex-grow: 1; 
+    flex-shrink: 1; 
+    color: darkcyan;;    
+}
+.f-item1 {
+    flex-basis: 120px;
+    flex-shrink: 1;  
+}
+.f-item2 {
+    flex-basis: 200px; 
+    flex-shrink: 2;
+    flex-grow: 2;
+}
+.f-title {
+    margin-left: 15px;
+    font-size: 1rem;
+    color: darkcyan;
+}
+button {
+    background-color: white;
+}

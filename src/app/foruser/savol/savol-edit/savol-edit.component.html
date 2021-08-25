@@ -1,0 +1,102 @@
+<div class="f-container test-title">
+    <div class="f-container-u1">
+        <div class="f-container-u2">
+            <button mat-stroked-button (click)="backClick()" color="primary">
+                <mat-icon>arrow_back</mat-icon>
+                Orqaga
+            </button> 
+            <span class="bold-text" style="margin: 10px;">Savol</span> 
+        </div>
+    </div>   
+</div>
+
+<mat-card style="padding: 8px;">
+    <mat-card-content>
+        <form [formGroup]="savolForm">
+            <div class="f-container">
+                <mat-form-field class="f-item1" style = "width: 100px"  appearance="outline">
+                    <mat-label>ID </mat-label>
+                    <input matInput formControlName="id"   type="text" readonly>
+                </mat-form-field>
+                <mat-form-field class="f-item2" appearance="outline" color="primary">
+                    <mat-label>Fani </mat-label>
+                    <input matInput formControlName="fani"   type="text">
+                </mat-form-field>
+                <mat-form-field class="f-item2" appearance="outline">
+                    <mat-label>Bo'limi </mat-label>
+                    <input matInput formControlName="razdel"   type="text">
+                </mat-form-field>
+                <mat-form-field class="f-item2" appearance="outline">
+                    <mat-label>Muallifi </mat-label>
+                    <input matInput formControlName="muallifi"   type="text">
+                </mat-form-field>
+                <div class="f-item1" style="width: 200px; margin-left: 10px;">
+                    <mat-label>Statusi</mat-label>
+                    <mat-checkbox formControlName="activated" style="width: 100%;">Aktiv</mat-checkbox>
+                </div>
+            </div>  
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                        <div>
+                            <div class="savol-javob-title">Savol</div>
+                            <ng-katex-html [html]="savolForm.controls['savol'].value | strForKatex"></ng-katex-html>
+                        </div>          
+                    </mat-expansion-panel-header>
+                        <angular-editor formControlName="savol" [config]="config1"></angular-editor> 
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                        <div>
+                            <div class="savol-javob-title">To'g'ri javob</div>
+                            <ng-katex-html [html]="savolForm.controls['tj'].value | strForKatex"></ng-katex-html>
+                        </div>          
+                    </mat-expansion-panel-header>
+                        <angular-editor formControlName="tj" [config]="config1"></angular-editor> 
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                        <div>
+                            <div class="savol-javob-title">Javob 1</div>
+                            <ng-katex-html [html]="savolForm.controls['j1'].value | strForKatex"></ng-katex-html>
+                        </div>          
+                    </mat-expansion-panel-header>
+                        <angular-editor formControlName="j1" [config]="config1"></angular-editor> 
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                        <div>
+                            <div class="savol-javob-title">Javob 2</div>
+                            <ng-katex-html [html]="savolForm.controls['j2'].value | strForKatex"></ng-katex-html>
+                        </div>          
+                    </mat-expansion-panel-header>
+                        <angular-editor formControlName="j2" [config]="config1"></angular-editor> 
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                        <div>
+                            <div class="savol-javob-title">Javob 3</div>
+                            <ng-katex-html [html]="savolForm.controls['j3'].value | strForKatex"></ng-katex-html>
+                        </div>          
+                    </mat-expansion-panel-header>
+                        <angular-editor formControlName="j3" [config]="config1"></angular-editor> 
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                        <div>
+                            <div class="savol-javob-title">Javob 4</div>
+                            <ng-katex-html [html]="savolForm.controls['j4'].value | strForKatex"></ng-katex-html>
+                        </div>          
+                    </mat-expansion-panel-header>
+                        <angular-editor formControlName="j4" [config]="config1"></angular-editor> 
+                </mat-expansion-panel>
+            </mat-accordion>
+        </form> 
+    </mat-card-content>
+    <mat-card-actions style="padding: 5px;">
+        <button mat-stroked-button (click)="saveSavol()" color="primary" cdkFocusInitial
+            [disabled]="!savolForm.valid || savolForm.disabled">
+        Сохранить
+        </button>
+    </mat-card-actions>  
+</mat-card>
