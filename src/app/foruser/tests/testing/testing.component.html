@@ -17,7 +17,7 @@
 </div>
 <div class="savol" *ngFor="let savol of currTest.savols; let i = index">
     <div>
-        <div style="margin: 3px; text-align: center;">{{i+1}} - savol</div>
+        <div style="margin: 3px; text-align: center; color: green">{{i+1}} - savol</div>
         <div style="margin-left: 20px; margin-bottom: 5px;">
             <ng-katex-html [html]="savol.savol | strForKatex"></ng-katex-html>
         </div>      
