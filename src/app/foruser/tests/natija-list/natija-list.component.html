@@ -1,0 +1,54 @@
+<div>
+    <div class="test-title">
+        <span>Natijalar</span>
+    </div>
+    <div class="filter-panel">
+        <div class="f-container" style="flex-wrap: wrap;">
+            <div class="f-container-u1">
+                <div class="f-container" style="flex-wrap: wrap;">
+                    <mat-form-field class="f-item2" style="height: 60px;" appearance="outline">
+                        <mat-label>Test nomi bo'yicha filter</mat-label>
+                        <input matInput type="text" [(ngModel)]="filterTestNomi">
+                        <button matSuffix mat-icon-button (click)="loadPage()" >
+                          <mat-icon>filter_alt</mat-icon>
+                        </button>
+                        <button matSuffix mat-icon-button (click)="filterTestNomi = ''" >
+                            <mat-icon>clear</mat-icon>
+                        </button> 
+                    </mat-form-field>
+                    <mat-form-field class="f-item2" style="height: 60px;" appearance="outline">
+                        <mat-label>Fanlar bo'yicha filter</mat-label>
+                        <input matInput type="text" [(ngModel)]="filterFani"> 
+                        <button matSuffix mat-icon-button (click)="loadPage()">
+                          <mat-icon>filter_alt</mat-icon>
+                        </button>
+                        <button matSuffix mat-icon-button (click)="filterFani = ''" >
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>            
+        </div>             
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-row-cus">
+        <ng-container matColumnDef="nomi">
+            <th mat-header-cell *matHeaderCellDef> Test Nomi </th>
+            <td mat-cell *matCellDef="let element"> <span [innerHtml]="element.test.nomi"></span> </td>
+        </ng-container>
+        <ng-container matColumnDef="fani">
+            <th mat-header-cell *matHeaderCellDef> Fani </th>
+            <td mat-cell *matCellDef="let element"> {{element.test.fani}} </td>
+        </ng-container>
+        <ng-container matColumnDef="natija">
+            <th mat-header-cell *matHeaderCellDef> Natija <p style="margin-block-start: 0; margin-block-end: 0;">Savol/To'g'ri javob</p> </th>
+            <td mat-cell *matCellDef="let element"> {{element.savolCount}}/{{element.tjCount}} </td>
+        </ng-container>     
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+            class="example-element-row">
+        </tr>
+    </table>
+    <mat-paginator [length]="dataSource.natijaCount | async" [pageSize]="10"
+                    [pageSizeOptions]="[5, 10, 20]"></mat-paginator>   
+</div>

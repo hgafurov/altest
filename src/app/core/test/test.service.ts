@@ -47,7 +47,6 @@ export class TestService {
     }
 
     getTestPageByCrit(filterCurrentUserTest: boolean, filterNomi: string, filterFani:string, filterRazdel:string, pageNumber: number, size: number): Observable<any> {
-        console.log(filterCurrentUserTest);
         return this.http.get(environment.apiUrl + '/api/v1/test/get-all-by-crit', {
             params: new HttpParams()
                 .set('filterCurrentUserTest', filterCurrentUserTest ? "true" : "false")

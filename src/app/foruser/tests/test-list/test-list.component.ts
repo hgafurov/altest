@@ -39,6 +39,6 @@ export class TestListComponent implements OnInit, AfterViewInit {
   }
 
   doTesting(id: number) {
-    this.router.navigate(["/testing/" + id]);
+    this.router.navigate(["/test/testing/" + id]);
   }
 }

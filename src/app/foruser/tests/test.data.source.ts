@@ -22,7 +22,13 @@ export class TestDataSource implements DataSource<Test> {
         this.testsCountSubject.complete();
     }
 
-    loadTests(filterCurrentUserTest:boolean, filterNomi: string, filterFani: string, filterRazdel: string, pageNumber: number, size: number) {
+    loadTests(filterCurrentUserTest:boolean, 
+              filterNomi: string, 
+              filterFani: string, 
+              filterRazdel: string, 
+              pageNumber: number, 
+              size: number) {
+        
         // Shu joyda muammo bor !!!!!!!!!!!!!!
         this.testService.getTestPageByCrit(filterCurrentUserTest, filterNomi, filterFani, filterRazdel,pageNumber, size)
             .pipe(map((data: any) => {
@@ -31,7 +37,6 @@ export class TestDataSource implements DataSource<Test> {
                 }))
             .pipe(catchError(() => of([])))
             .subscribe(tests => {
-                console.log("===== Test supscribe =======");
                 this.testsSubject.next(tests);
             });
     }

@@ -96,11 +96,11 @@
             <mat-icon>home</mat-icon>
             <span>Bosh sahifa</span>
         </button>
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" (click)="closeSideNav()" routerLink="/yangiliklar">
             <mat-icon>text_snippet</mat-icon>
             <span>Yangiliklar</span>
         </button>
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" (click)="closeSideNav()" routerLink="/maqola">
             <mat-icon>notes</mat-icon>
             <span>Maqolalar</span>
         </button>
@@ -108,9 +108,13 @@
         <div class="menu-title">
             Test topshirish
         </div>
-        <button mat-button (click)="closeSideNav()" routerLink="/testlist" class="menu-button">
+        <button *ngIf='isAuth' mat-button (click)="closeSideNav()" routerLink="/test/testlist" class="menu-button">
             <mat-icon>rule</mat-icon>
-            <span>Ochiq testlar</span>
+            <span>Testlar</span>
+        </button>
+        <button *ngIf='isAuth' mat-button (click)="closeSideNav()" routerLink="/test/natijalar" class="menu-button">
+            <mat-icon>rule</mat-icon>
+            <span>Test natijalari</span>
         </button>
         <mat-divider></mat-divider>
         <div *ngIf='isAuth' class="menu-title">

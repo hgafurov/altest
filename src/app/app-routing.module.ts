@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PersonalInfoEditComponent } from './foruser/personal-info-edit/personal-info-edit.component';
 import { SavolCardListComponent } from './foruser/savol/savol-card-list/savol-card-list.component';
 import { SavolEditComponent } from './foruser/savol/savol-edit/savol-edit.component';
+import { NatijaListComponent } from './foruser/tests/natija-list/natija-list.component';
 import { TestEditComponent } from './foruser/tests/test-edit/test-edit.component';
 import { TestListComponent } from './foruser/tests/test-list/test-list.component';
 import { TestTableComponent } from './foruser/tests/test-table/test-table.component';
@@ -24,8 +25,6 @@ const routes: Routes = [
       {path: 'guest-hello', component: GuestHelloComponent},
       {path: 'login', component: LoginComponent, canActivate:[GuestGuard]},
       {path: 'register', component: RegisterComponent, canActivate:[GuestGuard]},
-      {path: 'testlist', component: TestListComponent},
-      {path: 'testing/:id', component: TestingComponent},
       
       {path: 'user-profile', 
         data: {roles: ['ROLE_ADMIN', 'ROLE_USER']}, canActivate:[RoleGuard],
@@ -45,8 +44,10 @@ const routes: Routes = [
         data: {roles: ['ROLE_ADMIN', 'ROLE_USER']}, canActivate:[RoleGuard],
         children:[
           {path: 'table', component: TestTableComponent},
-          {path: 'edit/:id', component: TestEditComponent}
-
+          {path: 'edit/:id', component: TestEditComponent},
+          {path: 'testlist', component: TestListComponent},
+          {path: 'testing/:id', component: TestingComponent},
+          {path: 'natijalar', component: NatijaListComponent}
         ]
       },
       {path: 'admin',

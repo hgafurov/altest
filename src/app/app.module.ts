@@ -30,6 +30,7 @@ import { TestTableComponent } from './foruser/tests/test-table/test-table.compon
 import { TestEditComponent } from './foruser/tests/test-edit/test-edit.component';
 import { TestListComponent } from './foruser/tests/test-list/test-list.component';
 import { TestingComponent } from './foruser/tests/testing/testing.component';
+import { NatijaListComponent } from './foruser/tests/natija-list/natija-list.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { TestingComponent } from './foruser/tests/testing/testing.component';
     TestListComponent,
     TestEditComponent,
     TestingComponent,
+    NatijaListComponent,
     LogoutDialogComponent,
     StrForKatexPipe,
     P404Component
